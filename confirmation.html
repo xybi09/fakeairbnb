@@ -6,24 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation Confirmée</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; padding: 40px; }
-        h1 { color: #28a745; }
-        .summary { background: white; padding: 20px; margin-top: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
-        .summary img { width: 80%; border-radius: 12px; margin-bottom: 20px; }
-        a { margin-top: 20px; display: inline-block; text-decoration: none; color: #FF385C; font-weight: bold; font-size: 18px; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+        #notification {
+            position: fixed;
+            top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            animation: fadeOut 3s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        h1 {
+            color: #28a745;
+            animation: pop 0.6s ease forwards;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .summary {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 80%;
+        }
+        .summary img {
+            width: 90%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .info, .conversation {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .info p, .conversation p {
+            margin: 6px 0;
+        }
+        a {
+            margin-top: 30px;
+            display: inline-block;
+            text-decoration: none;
+            color: #FF385C;
+            font-weight: bold;
+            font-size: 18px;
+        }
     </style>
+    <script>
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        }, 5000);
+    </script>
 </head>
 <body>
+
+<div id="notification">🎉 Réservation réussie !</div>
 
 <h1>✅ Votre réservation a été confirmée !</h1>
 
 <div class="summary">
     <img src="./salon.jpg" alt="Salon cocooning">
-    <h2>Résumé de votre séjour :</h2>
-    <ul style="list-style:none; padding:0;">
-        <li><strong>Hôte :</strong> Guillaume R</li>
-        <li><strong>Organisateur :</strong> Vous</li>
-    </ul>
+
+    <div class="info">
+        <h2>Résumé de votre séjour :</h2>
+        <p>🏠 Adresse : 19 Rue Paul Valéry, 31200 Toulouse</p>
+        <p>📅 Séjour : du 28 avril 2025 au 4 mai 2025</p>
+        <p>🔖 Référence : #RBNA20250428</p>
+    </div>
+
+    <div class="conversation">
+        <h2>Conversation :</h2>
+        <p>👤 Guillaume R (Hôte)</p>
+        <p>👤 Vous (Organisateur)</p>
+    </div>
 </div>
 
 <a href="index.html">🏠 Retour à l'accueil</a>
